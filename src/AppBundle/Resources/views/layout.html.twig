@@ -1,0 +1,17 @@
+{% extends '@App/MainPage/base.html.twig' %}
+
+{% block title %} Strefa użytkownika {% endblock %}
+
+{% block content %}
+<div class="services bg-default">
+    <div class="container" id="maincontainer">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                {{ block('fos_user_content') }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,43 @@
+{% extends "@App/MainPage/base.html.twig" %}
+
+{% block title %}Oferty{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-2 col-md-offset-1 col-sm-12 text-center buffer">
+        <a href="{{ path('advert') }}" class="list-group-item">Wszystkie</a>
+        {% for cat in category %}
+            <a href="{{ path('sort', {'id': cat.id}) }}" class="list-group-item">{{ cat.name }}</a>
+        {% endfor %}
+        <br>
+        <p>Wyszukaj ogłoszenie lub autora:</p>
+        <input type="search" class="form-control light-table-filter" data-table="table" placeholder="Szukaj...">
+    </div>
+
+    <div class="col-md-8 col-sm-12 buffer">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tytuł</th>
+                    <th>Kategoria</th>
+                    <th>Dodał</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for add in adds %}
+                {% if add.category.id == sortid %}
+                    <tr>
+                        <td class="col-md-5"><a href="{{ path('addinfo', {'n': add.id}) }}">{{ add.title }}</a></td>
+                        <td class="col-md-2">{{ add.category }}</td>
+                        <td class="col-md-2">
+                            {% for u in user %}
+                                {% if add.userId == u.id %}{{ u.username }}{% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

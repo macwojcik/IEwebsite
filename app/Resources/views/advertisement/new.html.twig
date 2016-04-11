@@ -1,0 +1,48 @@
+{% extends 'AppBundle:MainPage:base.html.twig' %}
+
+{% block title %}Dodaj ogłoszenie{% endblock %}
+
+{% block content %}
+    <div class="row buffer text-center" xmlns="http://www.w3.org/1999/html">
+        <h2>Stwórz swoje ogłoszenie</h2>
+    </div>
+
+<div class="services bg-default">
+    <div class="container" id="maincontainer">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+
+                <form class="form-horizontal" method="post" name="advertisement">
+                    <div id="advertisement">
+                        <div class="form-group">
+                            <label class="required col-sm-3 control-label" for="advertisement_title">Tytuł</label>
+                            <div class="col-sm-9"><input class="form-control" id="advertisement_title" type="text" maxlength="50" required="required" name="advertisement[title]"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="required col-sm-3 control-label" for="advertisement_content">Treść</label>
+                            <div class="col-sm-9"><textarea class="form-control" id="advertisement_content" rows="4" type="text" maxlength="535" required="required" name="advertisement[content]"></textarea></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="required col-sm-3 control-label" for="advertisement_category">Kategoria</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="advertisement_category" name="advertisement[category]">
+                                    {% for category in categories %}
+                                        <option value="{{ category.id }}">{{ category.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        {{ form_row(form._token) }}
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <input class="btn btn-default" type="submit" value="Stwórz">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

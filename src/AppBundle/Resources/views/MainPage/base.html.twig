@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <meta charset="utf8_polish_ci" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>{% block title %}Serwis z ogłoszeniami o pracę{% endblock %}</title>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/framework/css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyAA6SmzWNz0kzZFAMfxO5UoMuMeY8qy1nc"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="{{ asset('bundles/framework/js/maplace.min.js') }}"></script>
+
+</head>
+
+<body>
+
+{% include "@App/MainPage/nav.html.twig" %}
+{% block content%}<h1>WITAMY</h1>{% endblock %}
+{% include "@App/MainPage/footer.html.twig" %}
+
+
+</body>
+</html>

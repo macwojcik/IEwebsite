@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('index') }}">Strona główna</a></li>
+                    <li><a href="{{ path('advert') }}">Oferty</a></li>
+                    <li><a href="{{ path('add_new') }}">Dodaj</a></li>
+                    <li><a href="{{ path('contact') }}">Kontakt</a></li>
+                {% else %}
+                    <li><a href="{{ path('index') }}">Strona główna</a></li>
+                    <li><a href="{{ path('advert') }}">Oferty</a></li>
+                    <li><a href="{{ path('contact') }}">Kontakt</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-cog"></span> Administracja</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
+                {% elseif is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('fos_user_profile_show') }}"><span class="glyphicon glyphicon-wrench"></span> Moje konto</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-log-out"></span> Wyloguj się</a></li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_registration_register') }}"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>

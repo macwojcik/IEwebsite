@@ -1,0 +1,65 @@
+{% extends "@App/MainPage/base.html.twig" %}
+
+{% block title %}Szczegóły oferty{% endblock %}
+
+{% block content %}
+<div class="services bg-default">
+    <div class="container" id="maincontainer">
+        <div class="col-md-8 col-sm-12">
+            {% for ad in adds %}
+                {% if ad.id == n %}
+                        <div class="row buffer">
+                            <h2>{{ ad.title }}</h2>
+                            <p>{{ ad.content }}</p>
+                        </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="row buffer text-center">
+                <h4>Wyślij wiadomość do
+                    {% for ad in adds %}
+                        {% if ad.id == n %}
+                            {% for u in user %}
+                                {% if ad.userId == u.id %}
+                                    {{ u.username }}
+
+                </h4>
+            </div>
+            <div class="row">
+                <form class="form-horizontal" method="post" name="form">
+                    <div id="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form_subject">Temat</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="form_subject" type="text" value="Pytanie o '{{ ad.title }}' " required="required" name="form[subject]">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form_email">Email</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" id="form_email" type="text" value="{{ u.email }}" required="required" name="form[email]">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form_text">Treść</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control" id="form_text" type="text" rows="4" required="required" name="form[text]"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button class="btn btn-default" id="form_Wyślij" name="form[Wyślij]" type="submit">Wyślij</button>
+                            </div>
+                        </div>
+                        {{ form_row(form._token) }}
+                    </div>
+                </form>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "@App/MainPage/base.html.twig" %}
+
+{% block title %}Kontakt{% endblock %}
+
+{% block content %}
+
+    <script type="text/javascript">
+        $(function() {
+            new Maplace({
+                locations: [
+                    {
+                        lat: 50.0645191,
+                        lon: 19.923639699999967,
+                        zoom: 12
+                    }
+                ],
+                controls_on_map: false
+            }).Load();
+        });
+    </script>
+
+    <div class="services bg-default">
+        <div class="container" id="maincontainer">
+            <div class="col-md-6 col-sm-12">
+                <div class="row buffer text-center">
+                    <h3>Skontaktuj się z nami:</h3>
+                </div>
+                <div class="col-sm-2">
+                    <div class="row buffericon"><i class="fa fa-phone fa-3x"></i></div>
+                    <div class="row buffericon"><i class="fa fa-envelope fa-3x"></i></div>
+                    <div class="row buffericon"><i class="fa fa-map-marker fa-3x"></i></div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="row buffer"><h4>+48 123 456 789</h4></div>
+                    <div class="row buffer"><h4>adres@email.com</h4></div>
+                    <div class="row buffer"> <h4>al. Mickiewicza 30, 30-059 Kraków</h4></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="row buffer text-center">
+                    <h3>Znajdź nas:</h3>
+                </div>
+                <div class="row">
+                    <center><div id="gmap" style="width: 400px; height: 250px"></div></center>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

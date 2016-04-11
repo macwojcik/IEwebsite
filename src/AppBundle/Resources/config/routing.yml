@@ -1,0 +1,31 @@
+app_advertisement:
+    resource: "@AppBundle/Resources/config/routing/advertisement.yml"
+    prefix:   /add
+
+app_category:
+    resource: "@AppBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+
+index:
+    path:     /index
+    defaults: { _controller: AppBundle:MainPage:index }
+
+
+contact:
+    path:     /contact
+    defaults: { _controller: AppBundle:MainPage:contact}
+
+advert:
+    path:     /advert
+    defaults: { _controller: AppBundle:MainPage:advert}
+
+sort:
+    path:     /{id}/sort
+    defaults: { _controller: AppBundle:MainPage:sort}
+
+addinfo:
+    path:     /{n}/addinfo
+    defaults: { _controller: AppBundle:MainPage:addinfo}
+
+
